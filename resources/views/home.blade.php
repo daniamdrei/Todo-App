@@ -54,9 +54,10 @@
                         <button type="submit"class="border-0 bg-light"> @if($todo->completed === 1) <i class="bi bi-check-square-fill them"> @else<i class="bi bi-square"></i> @endif</i></button>
                     </form>
                 </li>
+                {{-- {{ $todo->completed?'text-decoration-line-through':''  }} --}}
                 <li
                     class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 rounded border-0 bg-transparent todo-{{ $todo->id }}">
-                    <p class="lead fw-normal them mb-0 {{ $todo->completed?'text-decoration-line-through':''  }}">{{ $todo->title }}</p>
+                    <p  @class(['lead','fw-normal' ,'them' ,'mb-0' ,'text-decoration-line-through' => $todo->completed])>{{ $todo->title }}</p>
                 </li>
                 <li class="list-group-item ps-3 pe-0 py-1 rounded border-0 bg-transparent todo-{{ $todo->id }}">
                   <div class="d-flex flex-row justify-content-end mb-1">
